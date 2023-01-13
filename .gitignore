@@ -1,2 +1,8 @@
 /movie_ticket_booking_system.iml
 /.idea/
+/mvnw
+/mvnw.cmd
+/configserver/.mvn/
+/configserver/mvnw
+/configserver/mvnw.cmd
+/.mvn/
