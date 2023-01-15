@@ -10,3 +10,6 @@ spring:
         git:
           uri: https://github.com/Ajayanthony/movie_ticket_booking_system/
           searchPaths: config_repo
+
+server:
+  port: 8071
