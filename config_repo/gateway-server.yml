@@ -1,0 +1,28 @@
+server:
+  port: 8072
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eurekaserver:8070/eureka/
+
+spring:
+  cloud:
+    loadbalancer.ribbon.enabled: false
+    gateway:
+      default-filters:
+        - PrefixPath= /api
+      routes:
+        - id: movies_service
+          uri: lb://movies-service
+          predicates:
+            - Path=/movies/
+        - id: booking_service
+          uri: lb://booking-service
+          predicates:
+            - Path=/booking/
+
