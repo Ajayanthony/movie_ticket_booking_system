@@ -14,8 +14,8 @@ spring:
   cloud:
     loadbalancer.ribbon.enabled: false
     gateway:
-      default-filters:
-        - PrefixPath= /api
+      #      default-filters:
+      #        - PrefixPath= /api
       routes:
         - id: movies_service
           uri: lb://movies-service
@@ -33,4 +33,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
