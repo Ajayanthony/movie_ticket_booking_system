@@ -12,19 +12,26 @@ eureka:
 
 spring:
   cloud:
-    loadbalancer.ribbon.enabled: false
+#    loadbalancer.ribbon.enabled: false
     gateway:
-      #      default-filters:
-      #        - PrefixPath= /api
+      discovery.locator:
+        enabled: true
+        lowerCaseServiceId: true
       routes:
         - id: movies_service
           uri: lb://movies-service
           predicates:
-            - Path=/movies/
+            - Path=/movies/**
         - id: booking_service
           uri: lb://booking-service
           predicates:
-            - Path=/booking/
+            - Path=/booking/**
+        - id: user_service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+      #      default-filters:
+      #        - PrefixPath= /api
 
 management:
   endpoint:
